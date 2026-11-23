@@ -158,7 +158,7 @@ function renderApp(state) {
                 id="brand-logo-img"
                 src="${BRAND_LOGO_PATH}"
                 alt="شعار صادر من المورد"
-                class="h-9 sm:h-10 w-auto max-w-[150px] object-contain"
+                class="h-9 sm:h-10 w-auto max-w-[150px] object-contain brand-logo-animated"
               />
               <div
                 id="brand-logo-fallback"

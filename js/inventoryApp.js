@@ -468,7 +468,7 @@
             <div class="flex items-center gap-3">
               <a href="index.html" class="px-2.5 py-1 rounded-lg bg-[#F5F7F8] hover:bg-[#E6F4F1] text-xs font-bold text-[#132E39] hover:text-[#087E78] border border-[#DCE6E8] transition-colors no-underline">← الرئيسية</a>
               <div class="flex items-center">
-                <img id="brand-logo-img" src="${BRAND_LOGO_PATH}" alt="شعار جرد البوفيه" class="h-9 sm:h-10 w-auto max-w-[150px] object-contain" />
+                <img id="brand-logo-img" src="${BRAND_LOGO_PATH}" alt="شعار جرد البوفيه" class="h-9 sm:h-10 w-auto max-w-[150px] object-contain brand-logo-animated" />
                 <div id="brand-logo-fallback" class="hidden h-9 px-3 rounded-xl border border-dashed border-[#A7DCD7] bg-[#EFF8F6] text-[#087E78] items-center justify-center text-xs font-bold whitespace-nowrap flex">LOGO (logo.png)</div>
               </div>
               <div class="text-base sm:text-lg font-extrabold text-[#132E39] leading-none">جرد البوفيه</div>

@@ -61,7 +61,7 @@
           <div class="topbar-inner">
             <div class="flex items-center gap-3">
               <div class="flex items-center">
-                <img id="brand-logo-img" src="${BRAND_LOGO_PATH}" alt="شعار سيستم البوفيه" class="h-9 sm:h-10 w-auto max-w-[150px] object-contain" />
+                <img id="brand-logo-img" src="${BRAND_LOGO_PATH}" alt="شعار سيستم البوفيه" class="h-9 sm:h-10 w-auto max-w-[150px] object-contain brand-logo-animated" />
                 <div id="brand-logo-fallback" class="hidden h-9 px-3 rounded-xl border border-dashed border-[#A7DCD7] bg-[#EFF8F6] text-[#087E78] items-center justify-center text-xs font-bold whitespace-nowrap flex">LOGO (logo.png)</div>
               </div>
               <div class="text-base sm:text-lg font-extrabold text-[#132E39] leading-none">سيستم البوفيه</div>
@@ -134,5 +134,31 @@
     }
   });
 
-  document.addEventListener('DOMContentLoaded', renderPortal);
+  
+  function playIntroSplash() {
+    try {
+      if (sessionStorage.getItem('wared_splash_shown')) return;
+      sessionStorage.setItem('wared_splash_shown', '1');
+    } catch {
+      // Ignore
+    }
+    const splash = document.createElement('div');
+    splash.className = 'wared-splash-overlay';
+    splash.innerHTML = `
+      <img src="${BRAND_LOGO_PATH}" alt="سيستم البوفيه" class="wared-splash-logo" />
+      <div class="text-xs font-bold text-[#637880]">جاري تجهيز سيستم البوفيه...</div>
+    `;
+    document.body.appendChild(splash);
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        splash.classList.add('fade-out');
+        setTimeout(() => splash.remove(), 380);
+      }, 750);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderPortal();
+    playIntroSplash();
+  });
 })();

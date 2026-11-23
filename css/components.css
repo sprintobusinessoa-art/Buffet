@@ -229,3 +229,62 @@
   gap: 10px;
   border-right: 4px solid var(--color-primary);
 }
+
+/* GPU-Composited Zero-Lag Page & Logo Animations */
+@keyframes waredPageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes waredLogoReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.page-content {
+  animation: waredPageEnter 320ms ease-out both;
+  will-change: opacity;
+}
+
+.brand-logo-animated {
+  animation: waredLogoReveal 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
+}
+
+.wared-splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: #F5F7F8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 1;
+  transition: opacity 360ms ease-out;
+  will-change: opacity;
+}
+
+.wared-splash-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wared-splash-logo {
+  height: 74px;
+  width: auto;
+  object-fit: contain;
+  animation: waredLogoReveal 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
+}
